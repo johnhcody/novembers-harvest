@@ -48,4 +48,42 @@ router.post('/',
     }
 );
 
+router.patch('/:postId', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Post.findById(req.params.postId, function (err, post) {
+        if (!post) {
+            return res.status(400).json('We could not find that post');
+        } else if (post.author != req.user.id) {
+            return res.status(400).json('Invalid Credentials');
+        } else {
+            Post.findOneAndUpdate({ _id: req.params.postId }, req.body, function (err, post) {
+                if (err) {
+                    return res.status(400).json(err);
+                } else {
+                    newPost = req.body;
+                    res.send(newPost);
+                }
+            });
+        }
+    });
+});
+
+router.delete('/:postId', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Post.findById(req.params.postId, function (err, post) {
+        if (!post) {
+            return res.status(400).json('We could not find that post');
+        } else if (post.author != req.user.id) {
+            return res.status(400).json('Invalid Credentials');
+        } else {
+            Post.findOneAndDelete({ _id: req.params.postId }, function (err, post) {
+                if (err) {
+                    return res.status(400).json(err);
+                } else {
+                    res.send(post.id);
+                }
+
+            });
+        }
+    });
+});
+
 module.exports = router;
