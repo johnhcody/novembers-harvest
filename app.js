@@ -14,9 +14,9 @@ const app = express();
 //     })
 // }
 
-app.get("/", (req, res) => {
-    res.send("hello... testing!");
-});
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
 
 const db = require('./config/keys').mongoURI;
 mongoose
