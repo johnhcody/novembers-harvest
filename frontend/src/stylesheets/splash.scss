@@ -1,2 +1,22 @@
-@import './variables.scss'
+@import './variables.scss';
 
+.header-wrapper {
+    background-color: $dark-blue;
+    display: flex;
+    justify-content: space-between;
+    .logo-wrapper img {
+        max-height: 150px;
+    }
+    .links-wrapper {
+        display: flex;
+        button {
+            outline: none;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            padding: 30px;
+        }
+    }
+}

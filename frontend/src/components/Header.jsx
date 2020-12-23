@@ -5,8 +5,16 @@ import logo from '../assets/nh_logo.png'
 
 const Header = () => {
     return (
-        <div>
-            <img src={logo} alt="November's Harvest Logo"/>
+        <div className="header-wrapper">
+            <div className="logo-wrapper">
+                <img src={logo} alt="November's Harvest Logo"/>
+            </div>
+            <div className="links-wrapper">
+                <button>Blog</button>
+                <button>About Us</button>
+                <button>CSA 2021</button>
+                <button>Events</button>
+            </div>
         </div>
     )
 }
