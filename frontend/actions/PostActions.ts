@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as PostApiUtil from './apiUtil/PostApi'
+
 
 export const createPost = initialValue => {
     const [value, setValue] = useState(initialValue);
@@ -12,6 +14,7 @@ export const createPost = initialValue => {
             onChange: event => {
                 setValue(event.target.value);
             }
-        }
+        },
+        submit: (data) => PostApiUtil.createPost(data)
     };
 };
