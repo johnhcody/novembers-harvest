@@ -23,7 +23,6 @@ export const createPost = data => {
 }
 
 export const updatePost = (data) => {
-
     return axios.patch(`/api/posts/${data._id}`, data)
 }
 
