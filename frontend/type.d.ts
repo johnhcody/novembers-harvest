@@ -2,7 +2,7 @@ interface IPost {
     user: number
     title: string
     text: string
-    date: date
+    date: string
 }
 
 type ContextType = {
