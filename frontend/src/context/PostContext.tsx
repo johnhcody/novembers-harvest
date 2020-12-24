@@ -1,10 +1,12 @@
-import React, { createContext, useState } from 'react'
-import PostList from '../components/PostList';
+import * as React from 'react';
 
-export const PostContext = createContext()
+//import React, { createContext, useState } from 'react';
+// import PostList from '../components/PostList';
 
-const PostContextProvider = (props) => {
-    const [posts, setPosts] = useState([
+export const PostContext = React.createContext()
+
+const PostContextProvider: React.FC = (props) => {
+    const [posts, setPosts] = React.useState([
         {   user: 1,
             title: "Test Title",
             text: "test text",

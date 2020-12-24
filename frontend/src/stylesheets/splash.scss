@@ -9,14 +9,18 @@
     }
     .links-wrapper {
         display: flex;
-        button {
-            outline: none;
-            border: none;
-            background-color: transparent;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        a {
+            border: 1px solid transparent;
             color: white;
             font-family: sans-serif;
             font-size: 20px;
-            padding: 30px;
+            padding: 10px;
+            &:hover {
+                border-bottom: 1px solid white;
+            }
         }
     }
 }

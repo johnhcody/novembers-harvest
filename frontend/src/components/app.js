@@ -20,4 +20,6 @@ const App = () => {
     )
 }
 
+// can contain all state in one context, or create a separate store
+
 export default App

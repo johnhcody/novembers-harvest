@@ -9,10 +9,10 @@ const Header = () => {
                 <img src={logo} alt="November's Harvest Logo"/>
             </div>
             <div className="links-wrapper">
-                <button>Blog</button>
-                <button>About Us</button>
-                <button>CSA 2021</button>
-                <button>Events</button>
+                <a>Blog</a>
+                <a>About Us</a>
+                <a>CSA 2021</a>
+                <a>Events</a>
             </div>
         </div> 
     ) 
