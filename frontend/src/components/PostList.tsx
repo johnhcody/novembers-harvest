@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { PostContext} from '../context/PostContext';
 import Post from './Post';
+import PostForm from './PostForm';
 
 interface IPost {
     user: number
@@ -20,6 +21,7 @@ const PostList: React.FC = () => {
                 })}
 
             </ul>
+            <PostForm />
         </div>
     )
 }

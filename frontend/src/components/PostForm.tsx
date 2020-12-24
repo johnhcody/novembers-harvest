@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PostContext } from '../context/PostContext';
 import Post from './Post';
-import { createPost } from '../../actions/PostActions';
+import { createPost } from '../actions/PostActions';
 
 export {}
 const PostForm: React.FC = () => {
