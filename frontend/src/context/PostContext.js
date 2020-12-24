@@ -33,5 +33,5 @@ const PostContextProvider = (props) => {
         </PostContext.Provider>
     )
 }
-
+// api in context
 export default PostContextProvider;

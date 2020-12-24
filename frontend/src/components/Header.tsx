@@ -1,7 +1,6 @@
 //rafce to create a functional component based on file name
-
-import React from 'react'
-import logo from '../assets/nh_logo.png'
+import React from 'react';
+import logo from '../assets/nh_logo.png';
 
 const Header = () => {
     return (
@@ -15,8 +14,10 @@ const Header = () => {
                 <button>CSA 2021</button>
                 <button>Events</button>
             </div>
-        </div>
-    )
+        </div> 
+    ) 
 } 
 
 export default Header
+// create general type file that allows typescript to understand png, svg, jpg
+// create one main directory, can separate posts and users, and put the methods on how to access the server
