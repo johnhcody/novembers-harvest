@@ -14,8 +14,12 @@ const PostContextProvider: React.FC = (props) => {
         }
     ]);
 
+    const addInput = (field, input) => {
+        setPosts([...posts, {[field]: input}]);
+    }
+
     return (
-        <PostContext.Provider value={{posts}}>
+        <PostContext.Provider value={{posts, addInput}}>
             {props.children}
         </PostContext.Provider>
     )

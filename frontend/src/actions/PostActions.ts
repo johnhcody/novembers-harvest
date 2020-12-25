@@ -7,14 +7,17 @@ export const usePost = initialValue => {
 
     return {
         value,
-        setValue,
-        reset: () => setValue(''),
-        bind: {
-            value,
-            onChange: event => {
-                setValue(event.target.value);
-            }
+        handleChange: (e) => {
+            setValues({
+                ...value,
+                [e.target.name]: e.target.value,
+            });
         },
-        submit: (data) => PostApiUtil.createPost(data)
+        reset: () => setValue(initialValue),
     };
 };
+
+export const createPost = data => {
+    debugger
+    return PostApiUtil.createPost(data);
+}

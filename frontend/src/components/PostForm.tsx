@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { PostContext } from '../context/PostContext';
 import Post from './Post';
-import { usePost } from '../actions/PostActions';
+import { usePost, createPost } from '../actions/PostActions';
 
 export {}
 const PostForm: React.FC = () => {
-    const { posts } = React.useContext(PostContext);
-    //const { value, bind, reset, submit } = usePost('');
+    const { posts, setPosts, addInput } = React.useContext(PostContext);
+    const { value, handleChange, reset } = usePost({ title: '', text: '' });
 
 
     interface IPost {
@@ -16,22 +16,39 @@ const PostForm: React.FC = () => {
         date: string
     }
     const handleSubmit = (e) => {
+        debugger
         e.preventDefault();
-        //submit(e.currentTarget.value);
+        createPost(e.currentTarget.value);
         //reset();
     }
 
-
+    // const handleChange = (field) => {
+    //     addInput(field, e.target.value);
+    // }
+    // const handleChange = e => {
+    //     e = () => setPosts(e.currentTarget.value)
+    // }
 
             return (
                 // <PostContext.Consumer>
                     <div>
                         <form onSubmit={handleSubmit}>
                             <label>Title
-                            <input type="text" />
+                            <input 
+                                type="text" 
+                                onChange={handleChange}
+                                value={value.title}
+                                name="title"
+                                placeholder="Post Title"
+                                />
                             {/* <input type="text" {...bind} /> */}
                             </label>
-                            <textarea></textarea>
+                            <textarea 
+                                onChange={handleChange}
+                                value={value.text}
+                                name="text"
+                                placeholder="Post Body"
+                                ></textarea>
                             {/* <textarea {...bind}></textarea> */}
                             <button>Submit</button>
                         </form>
