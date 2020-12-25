@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { PostContext } from '../context/PostContext';
 import Post from './Post';
-import { createPost } from '../actions/PostActions';
+import { usePost } from '../actions/PostActions';
 
 export {}
 const PostForm: React.FC = () => {
     const { posts } = React.useContext(PostContext);
-    const { value, bind, reset, submit } = createPost('');
+    //const { value, bind, reset, submit } = usePost('');
 
 
     interface IPost {
@@ -17,24 +17,28 @@ const PostForm: React.FC = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        submit(e.currentTarget.value);
-        reset();
+        //submit(e.currentTarget.value);
+        //reset();
     }
 
 
-    return (
-        <PostContext.Consumer>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>Title
-                    <input type="text" {...bind} />
-                    </label>
-                    <textarea {...bind}></textarea>
-                    <button>Submit</button>
-                </form>
-            </div>
-        </PostContext.Consumer>
-    )
+
+            return (
+                // <PostContext.Consumer>
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <label>Title
+                            <input type="text" />
+                            {/* <input type="text" {...bind} /> */}
+                            </label>
+                            <textarea></textarea>
+                            {/* <textarea {...bind}></textarea> */}
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                // </PostContext.Consumer>
+            )
+
 }
 
 export default PostForm;

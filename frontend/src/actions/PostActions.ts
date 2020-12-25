@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as PostApiUtil from '../apiUtil/PostApi'
 
 
-export const createPost = initialValue => {
+export const usePost = initialValue => {
     const [value, setValue] = useState(initialValue);
 
     return {
