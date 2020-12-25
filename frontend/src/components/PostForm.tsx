@@ -18,7 +18,7 @@ const PostForm: React.FC = () => {
     const handleSubmit = (e) => {
         debugger
         e.preventDefault();
-        createPost(e.currentTarget.value);
+        createPost({title: e.target[0].value, text: e.target[1].value, id: 1});
         //reset();
     }
 
@@ -29,32 +29,32 @@ const PostForm: React.FC = () => {
     //     e = () => setPosts(e.currentTarget.value)
     // }
 
-            return (
-                // <PostContext.Consumer>
-                    <div>
-                        <form onSubmit={handleSubmit}>
-                            <label>Title
-                            <input 
-                                type="text" 
-                                onChange={handleChange}
-                                value={value.title}
-                                name="title"
-                                placeholder="Post Title"
-                                />
-                            {/* <input type="text" {...bind} /> */}
-                            </label>
-                            <textarea 
-                                onChange={handleChange}
-                                value={value.text}
-                                name="text"
-                                placeholder="Post Body"
-                                ></textarea>
-                            {/* <textarea {...bind}></textarea> */}
-                            <button>Submit</button>
-                        </form>
-                    </div>
-                // </PostContext.Consumer>
-            )
+    return (
+        // <PostContext.Consumer>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label>Title
+                    <input 
+                        type="text" 
+                        onChange={handleChange}
+                        value={value.title}
+                        name="title"
+                        placeholder="Post Title"
+                        />
+                    {/* <input type="text" {...bind} /> */}
+                    </label>
+                    <textarea 
+                        onChange={handleChange}
+                        value={value.text}
+                        name="text"
+                        placeholder="Post Body"
+                        ></textarea>
+                    {/* <textarea {...bind}></textarea> */}
+                    <button>Submit</button>
+                </form>
+            </div>
+        // </PostContext.Consumer>
+    )
 
 }
 

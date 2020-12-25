@@ -8,7 +8,7 @@ export const usePost = initialValue => {
     return {
         value,
         handleChange: (e) => {
-            setValues({
+            setValue({
                 ...value,
                 [e.target.name]: e.target.value,
             });

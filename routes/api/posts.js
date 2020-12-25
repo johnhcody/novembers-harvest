@@ -31,13 +31,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
     (req, res) => {
+        debugger
         const { errors, isValid } = validatePostInput(req.body);
-
-        if (!isValid) {
-            return res.status(400).json(errors);
-        }
 
         const newPost = new Post({
             title: req.body.title,
@@ -48,6 +44,24 @@ router.post('/',
         newPost.save().then(post => res.json(post));
     }
 );
+// router.post('/',
+//     passport.authenticate('jwt', { session: false }),
+//     (req, res) => {
+//         const { errors, isValid } = validatePostInput(req.body);
+
+//         if (!isValid) {
+//             return res.status(400).json(errors);
+//         }
+
+//         const newPost = new Post({
+//             title: req.body.title,
+//             text: req.body.text,
+//             user: req.user.id
+//         });
+
+//         newPost.save().then(post => res.json(post));
+//     }
+// );
 
 router.patch('/:postId', passport.authenticate('jwt', { session: false }), (req, res) => {
     Post.findById(req.params.postId, function (err, post) {
