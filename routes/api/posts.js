@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ nopostfound: 'No post found with that ID' })
         );
 });
-
+debugger
 router.post('/',
     (req, res) => {
         debugger
@@ -38,7 +38,7 @@ router.post('/',
         const newPost = new Post({
             title: req.body.title,
             text: req.body.text,
-            user: req.user.id
+            user: req.body.id
         });
 
         newPost.save().then(post => res.json(post));
